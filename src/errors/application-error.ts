@@ -8,10 +8,10 @@ export default class ApplicationError extends Error {
 
   constructor(message?: string, status?: number) {
     super();
-    if (message != null) {
+    if (message !== null && message !== undefined) {
       this.message = message;
     }
-    if (status != null) {
+    if (status !== null && status !== undefined) {
       this.status = status;
     }
   }

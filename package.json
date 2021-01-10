@@ -13,7 +13,7 @@
   "main": "dist/server.js",
   "scripts": {
     "build": "rm -rf dist && tsc",
-    "lint": "tslint --project tsconfig.json",
+    "lint": "tslint --fix --project tsconfig.json",
     "dev": "nodemon --config nodemon.json src/server.ts",
     "start": "node dist/server.js"
   },
@@ -21,7 +21,6 @@
     "@hapi/joi": "17.1.1",
     "await-to-js": "^2.1.1",
     "axios": "^0.21.1",
-    "body-parser": "1.19.0",
     "cloudinary": "^1.23.0",
     "compression": "1.7.4",
     "convict": "^6.0.0",

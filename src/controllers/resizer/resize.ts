@@ -5,7 +5,9 @@ import ResizeImage from "../../service/ResizeImage";
 
 const resizeImageSchema = Joi.object().keys({
   body: Joi.object().keys({
-    url: Joi.string().uri().required()
+    url: Joi.string()
+      .uri()
+      .required()
   })
 });
 

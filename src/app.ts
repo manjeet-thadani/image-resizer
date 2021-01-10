@@ -1,5 +1,4 @@
 import cors from "cors";
-import bodyParser from "body-parser";
 import compression from "compression";
 import express, { Request, Response, NextFunction } from "express";
 import ApplicationError from "./errors/application-error";
@@ -10,8 +9,8 @@ const app = express();
 
 app.use(cors());
 app.use(compression());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.set("port", config.get("app.port"));
 

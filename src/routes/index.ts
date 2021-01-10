@@ -5,7 +5,7 @@ import apiSpec from "../openapi.json";
 import { config } from "../config/app.config";
 
 const swaggerUiOptions = {
-  customCss: ".swagger-ui .topbar { display: none }",
+  customCss: ".swagger-ui .topbar { display: none }"
 };
 
 const router = Router();

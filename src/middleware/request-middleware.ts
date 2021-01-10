@@ -5,7 +5,7 @@ import logger from "../logger";
 import BadRequest from "../errors/bad-request";
 import { getMessageFromJoiError } from "../utils/joi";
 
-interface HandlerOptions {
+interface IHandlerOptions {
   validation?: Joi.ObjectSchema;
 }
 
@@ -15,7 +15,7 @@ interface HandlerOptions {
  * instead of crashing the app
  * @param handler Request handler to check for error
  */
-const requestMiddleware = (handler: RequestHandler, options?: HandlerOptions): RequestHandler => async (
+const requestMiddleware = (handler: RequestHandler, options?: IHandlerOptions): RequestHandler => async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -24,7 +24,7 @@ const requestMiddleware = (handler: RequestHandler, options?: HandlerOptions): R
   // if yes then validate request against it
   if (options?.validation) {
     const { error } = options?.validation.validate(req, { allowUnknown: true });
-    if (error != null) {
+    if (error) {
       return next(new BadRequest(getMessageFromJoiError(error)));
     }
   }

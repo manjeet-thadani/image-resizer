@@ -7,7 +7,7 @@ import BadRequest from "../errors/bad-request";
 import { uploadImage } from "../utils/upload-image";
 import { fetchImageFromURL } from "../utils/fetch-image";
 
-interface Response {
+interface IResponse {
   urls: string[];
 }
 
@@ -26,7 +26,7 @@ class ResizeImage {
     ResizeImage.instance = this;
   }
 
-  public async execute(url: string): Promise<Response> {
+  public async execute(url: string): Promise<IResponse> {
     // obtain image buffer from the input URL
     const imageBuffer = await fetchImageFromURL(url);
 
@@ -39,7 +39,7 @@ class ResizeImage {
     };
 
     // for each dimension upload image to cloudinary
-    const promises = DIMENSIONS.map((dimension) => {
+    const promises = DIMENSIONS.map(dimension => {
       return uploadImage(imageBuffer, {
         ...commonOptions,
         folder: `${folder}/${dimension.width}-${dimension.height}`,
@@ -58,10 +58,10 @@ class ResizeImage {
     return this.prepareResponse(uploadResponses);
   }
 
-  private prepareResponse(uploadResponses: UploadApiResponse[]): Response {
-    const urls = uploadResponses.map((uploadResponse) => uploadResponse.url);
+  private prepareResponse(uploadResponses: UploadApiResponse[]): IResponse {
+    const urls = uploadResponses.map(uploadResponse => uploadResponse.url);
 
-    const response: Response = { urls };
+    const response: IResponse = { urls };
     return response;
   }
 }

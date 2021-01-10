@@ -21,10 +21,10 @@
     "no-empty": [true, "allow-empty-catch"],
     "no-floating-promises": true,
     "no-implicit-dependencies": false,
+    "no-void-expression": false,
     "no-invalid-this": true,
     "no-string-throw": true,
     "no-unsafe-finally": true,
-    "no-void-expression": [true, "ignore-arrow-function-shorthand"],
     "no-duplicate-imports": true,
     "no-empty-interface": {
       "severity": "warning"
