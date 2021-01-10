@@ -1,0 +1,98 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API Service",
+    "version": "1.0.0",
+    "description": "API Service endpoints",
+    "contact": {
+      "email": "manjeet.thadani@gmail.com",
+      "name": "Manjeet Thadani"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "resize",
+      "description": "Resize Image API"
+    }
+  ],
+  "paths": {
+    "/api/v1/resize": {
+      "post": {
+        "tags": ["resize"],
+        "summary": "API to resize image obtained from the input URL and upload resized image to cloudinary",
+        "operationId": "resize-image",
+        "requestBody": {
+          "description": "Resize Image",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResizeImageInputSchema"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Image has been resized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResizeImageOutputSchema"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ResizeImageInputSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "example": "https://dqktdb1dhykn6.cloudfront.net/357882-TLRKytH3h.jpg"
+          }
+        }
+      },
+      "ResizeImageOutputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Image on the URL has been resized and upload to cloudinary"
+          },
+
+          "originalURL": {
+            "type": "string",
+            "example": "https://dqktdb1dhykn6.cloudfront.net/357882-TLRKytH3h.jpg"
+          },
+
+          "resizedURLs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": [
+                "http://res.cloudinary.com/dejxoamrt/image/upload/v1610272751/BMSQ4KBpJ/32-32/h8nlsmnmszlpfryeblfs.jpg",
+                "http://res.cloudinary.com/dejxoamrt/image/upload/v1610272752/BMSQ4KBpJ/150-150/xdaa4pvcznpc4n1k9rep.jpg",
+                "http://res.cloudinary.com/dejxoamrt/image/upload/v1610272755/BMSQ4KBpJ/450-450/sced5mnryknxlhxajfmn.jpg",
+                "http://res.cloudinary.com/dejxoamrt/image/upload/v1610272755/BMSQ4KBpJ/800-800/nspseeg27cnoyfudauvw.jpg"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
