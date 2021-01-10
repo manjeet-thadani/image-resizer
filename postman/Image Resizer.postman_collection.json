@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "ce311b24-9485-4edc-9bee-51826745cfbd",
+		"name": "Image Resizer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Resize Image",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"url\": \"https://dqktdb1dhykn6.cloudfront.net/357882-TLRKytH3h.jpg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/resize",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"resize"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Failure Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"url\": \"https://dqktdb1dhykn6.cloudfront.net/357882\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/resize",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"resize"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "128"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"80-QLEvHVIjq8SJfIC0hwqHsvSKmy8\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 10 Jan 2021 11:20:11 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": {\n        \"message\": \"Unable to fetch image from provided URL\",\n        \"status\": 400\n    },\n    \"message\": \"Unable to fetch image from provided URL\"\n}"
+				},
+				{
+					"name": "Success Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"url\": \"https://dqktdb1dhykn6.cloudfront.net/357882-TLRKytH3h.jpg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/resize",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"resize"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "584"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"248-xTNSrn0uu/WbYrF51yNJ1/bSGqo\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 10 Jan 2021 11:19:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Image on the URL has been resized and upload to cloudinary\",\n    \"originalURL\": \"https://dqktdb1dhykn6.cloudfront.net/357882-TLRKytH3h.jpg\",\n    \"resizedURLs\": [\n        \"http://res.cloudinary.com/dejxoamrt/image/upload/v1610277498/E4kT93jOZ/32-32/htqirza0wa4raugispix.jpg\",\n        \"http://res.cloudinary.com/dejxoamrt/image/upload/v1610277499/E4kT93jOZ/150-150/oy2j4efyu9gnemdptfha.jpg\",\n        \"http://res.cloudinary.com/dejxoamrt/image/upload/v1610277498/E4kT93jOZ/450-450/on8gzjccaotnddhyjfxo.jpg\",\n        \"http://res.cloudinary.com/dejxoamrt/image/upload/v1610277498/E4kT93jOZ/800-800/usods9ktpfebe7uwyxzr.jpg\"\n    ]\n}"
+				}
+			]
+		}
+	]
+}
