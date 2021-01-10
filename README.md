@@ -26,7 +26,7 @@ Further, all the important functions have been properly documented to enhance th
 
 ## Configure
 
-1. Copy contents of `.env.default` and put it in a nw file `.env`
+1. Copy contents of `.env.default` and put it in a new file `.env`
 
 2. Add your cloudinary credentials
 
