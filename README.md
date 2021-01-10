@@ -22,7 +22,7 @@ Further, all the important functions have been properly documented to enhance th
 
 - [Node.js](https://nodejs.org/en/) - a JavaScript runtime built on Chrome's V8 JavaScript engine.
 
-- [Cloudinary] account and credentials
+- [Cloudinary](https://cloudinary.com/) account and credentials
 
 ## Configure
 
